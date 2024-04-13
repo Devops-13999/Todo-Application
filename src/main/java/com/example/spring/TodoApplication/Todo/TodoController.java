@@ -2,6 +2,8 @@ package com.example.spring.TodoApplication.Todo;
 
 import java.time.LocalDate;
 import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -43,13 +45,13 @@ public class TodoController {
 	}
 	
 	@RequestMapping(value="add-todo",method = RequestMethod.POST)
-	public String addTodo( ModelMap model,@Valid Todo todo, BindingResult result){
+	public String addTodo(ModelMap model,@Valid Todo todo, BindingResult result){
 		if(result.hasErrors()){
 			return "add-todo";
 		}
-		
+		System.out.println("Aryan:" +todo.getTargetdate());
 		String username=(String)model.get("name");
-		todoService.addTodo(username, todo.getDescription(), LocalDate.now().plusMonths(10), false);
+		todoService.addTodo(username, todo.getDescription(), todo.getTargetdate(), false);
 		return "redirect:listtdos";
 	}
 	

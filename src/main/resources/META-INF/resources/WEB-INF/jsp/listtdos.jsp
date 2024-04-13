@@ -6,7 +6,7 @@
 	<link href="webjars/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
 	<title>To Do </title>  </head>
 <body> 
-	
+	<%@ include file="common/navigation.jspf" %>
 	<div>Hey, ${name}</div>
 	<hr>
 	<div class="container">
