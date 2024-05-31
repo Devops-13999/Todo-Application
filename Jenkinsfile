@@ -5,10 +5,10 @@
         jdk 'JDK'
      }
      stages{
-         stage("Test"){
+         stage("compile"){
              steps{
                 script{
-                   sh 'mvn test'
+                   sh 'mvn clean compile'
                }
             }
         }
